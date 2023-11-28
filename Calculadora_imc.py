@@ -35,7 +35,8 @@ while loop_calculadora:
     resposta_usuario = str(input("Vamos calcular o seu IMC? (sim ou não)"))
     if resposta_usuario.lower() == 'sim':
         resultado_imc = peso_usuario / (altura_usuario * altura_usuario)
-        print("Seu cálculo ficou entre o valor:", resultado_imc)
+        arredondar_imc = round(resultado_imc, 2)
+        print("Seu cálculo ficou entre o valor:", arredondar_imc)
     else:
         print("Tudo bem, tenha um bom dia!")
 
