@@ -22,6 +22,7 @@ while loop_adivinha:
         tentativa_jogador = int(input("Voce tera 3 tentativas de acertar um numero aleatorio de 1 ate 100, BOA SORTE!"))
         if tentativa_jogador == numero_aleatorio:
             print("Parabens voce acertou o numero!")
+            loop_adivinha = False
         elif tentativa_jogador < numero_aleatorio:
             print("Esta perto o numero e maior!")
             tentativas = tentativas - 1
