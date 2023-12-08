@@ -1,12 +1,15 @@
+# ajustar o número que aparece na tela, jogo funcionando porém precisa de validações
+
 import random
 #biblioteca de randomizar numero
 loop_adivinha = True
-tentativas = 3
-numero_aleatorio = random.randint(1,100)
-numero_proximo = numero_aleatorio
-# declaração das variáveis
+# declaração das constantes
 # código do jogo de adivinhação
 while loop_adivinha:
+    tentativas = 3
+    numero_aleatorio = random.randint(1,100)
+    numero_proximo = numero_aleatorio
+# declaracao de variaveis que nao sao constantes
     print("-=Seja bem vindo ao jogo de adivinhação em Python=-")
     print("   Para começarmos preciso de suas informações  ")
     nome_usuario = str(input("Diga o seu nome >"))
@@ -33,12 +36,13 @@ while loop_adivinha:
         if tentativa_jogador == numero_aleatorio:
             print("Parabéns! Você acertou o número!")
             loop_adivinha = False
-        elif tentativa_jogador < numero_aleatorio:
+            break
+        elif tentativa_jogador > numero_aleatorio:
             numero_proximo = numero_aleatorio + 5
-            print("Você está perto, mas o número é maior e próximo de:", numero_proximo)
+            print("Boa tentativa, mas o número é menor que:", numero_proximo)
         else:
-            numero_proximo = numero_aleatorio - 5
-            print("Você está perto, mas o número é menor e próximo de:", numero_proximo)
+            numero_proximo = numero_aleatorio - 3
+            print("Boa tentativa, mas o número é maior que:", numero_proximo)
         tentativas -= 1
         if tentativas == 0:
             print(f"Fim das tentativas. O número era {numero_aleatorio}.")
@@ -47,6 +51,7 @@ while loop_adivinha:
     while True:
         resposta_recomecar = str(input("Você deseja tentar novamente? (sim ou não)"))
         if resposta_recomecar == "sim":
+            loop_adivinha = True
             break
         elif resposta_recomecar == "não":
             print("Espero que tenha gostado do jogo!")
