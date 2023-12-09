@@ -19,7 +19,7 @@ while loop_adivinha:
             print("Idade inválida você inseriu um valor não congruente!")
 # pedindo e validando as informações pessoais do usuário
     while True:
-        resposta_usuario = str(input("Vamos comecar a jogar? (sim ou não)"))
+        resposta_usuario = str(input("Vamos começar a jogar? (sim ou não)"))
         if resposta_usuario == "sim":
             break
         elif resposta_usuario == "não":
@@ -27,17 +27,18 @@ while loop_adivinha:
             loop_adivinha = False
             break
         else:
-            print("Escreveu algo inválido ou algo diferente de sim ou não")
-# pedindo e validando as informações para jogar do usuário
-    while tentativas:
+            print("Você escreveu algo inválido ou algo diferente de sim ou não")
+# verificando resposta do usuário
+    while loop_adivinha and tentativas:
+    # se o loop for verdadeiro irá entrar junto com as tentativas se não irá se encerrar
         tentativa_jogador = int(input("Você terá 3 tentativas de acertar um número aleatório de 1 até 100, BOA SORTE!"))
         if tentativa_jogador == numero_aleatorio:
             print("Parabéns! Você acertou o número!")
             loop_adivinha = False
             break
         elif tentativa_jogador > numero_aleatorio and tentativa_jogador <= 100:
-            numero_proximo = numero_aleatorio + 5
-            print("Boa tentativa, mas o número é menor que:", numero_proximo)
+                numero_proximo = numero_aleatorio + 5
+                print("Boa tentativa, mas o número é menor que:", numero_proximo)
         elif tentativa_jogador < numero_aleatorio and tentativa_jogador >= 0:
             numero_proximo = numero_aleatorio - 3
             print("Boa tentativa, mas o número é maior que:", numero_proximo)
@@ -50,13 +51,14 @@ while loop_adivinha:
             loop_adivinha = False
 # funcionamento do jogo e as tentativas
     while True:
-        resposta_recomecar = str(input("Você deseja tentar novamente? (sim ou não)"))
-        if resposta_recomecar == "sim":
-            loop_adivinha = True
-            break
-        elif resposta_recomecar == "não":
-            print("Espero que tenha gostado do jogo!")
-            loop_adivinha = False
-        else:
-            print("Você digitou algo inválido ou que não condiz com a pergunta, tente novamente!")
+            resposta_recomecar = str(input("Você deseja tentar novamente? (sim ou não)"))
+            if resposta_recomecar == "sim":
+                loop_adivinha = True
+                break
+            elif resposta_recomecar == "não":
+                print("Espero que tenha gostado do jogo!")
+                loop_adivinha = False
+                break
+            else:
+                print("Você digitou algo inválido ou que não condiz com a pergunta, tente novamente!")
 # perguntando para o usuário caso deseja tentar novamente
