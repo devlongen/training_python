@@ -1,5 +1,3 @@
-# ajustar o número que aparece na tela, jogo funcionando porém precisa de validações
-
 import random
 #biblioteca de randomizar numero
 loop_adivinha = True
@@ -37,12 +35,15 @@ while loop_adivinha:
             print("Parabéns! Você acertou o número!")
             loop_adivinha = False
             break
-        elif tentativa_jogador > numero_aleatorio:
+        elif tentativa_jogador > numero_aleatorio and tentativa_jogador <= 100:
             numero_proximo = numero_aleatorio + 5
             print("Boa tentativa, mas o número é menor que:", numero_proximo)
-        else:
+        elif tentativa_jogador < numero_aleatorio and tentativa_jogador >= 0:
             numero_proximo = numero_aleatorio - 3
             print("Boa tentativa, mas o número é maior que:", numero_proximo)
+        else:
+            print("Voce digitou um numero invalido tente novamente, lembrando e de 0 ate 100")
+            tentativas += 1
         tentativas -= 1
         if tentativas == 0:
             print(f"Fim das tentativas. O número era {numero_aleatorio}.")
